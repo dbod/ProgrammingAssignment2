@@ -1,8 +1,15 @@
-## Put comments here that give an overall description of what your
-## functions do
+################################################################################
+## Functions to solve a matrix using a cache system to impove performances    ##
+################################################################################
 
-## Write a short comment describing this function
-
+## Function makeCachematrix :
+##
+## makeCacheMatrix initialize the cache used to solve a matrix. The cache is 
+## able to manage two matrixes : the original matrix and its inverse.
+## Four functions are returned by makeCacheMatrix :
+##  - get and set : to get and set the original matrix in the cache
+##  - get_inverted_matrix and set_inverted_matrix to get and set the inverted 
+##    matrix in the cache
 makeCacheMatrix <- function(x = matrix()) {
   x_1 <- NULL
   set <- function(mt) {
@@ -18,8 +25,13 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+## Function cacheSolve :
+##
+## cacheSolve takes as inpout the resulting functions from a call to 
+## makeCacheMatrix. And then it computes and returns the inverse of the original 
+## matrix. The inverse matrix :
+##  - is computed if the result is not already in the cache
+##  - is returned directly from the cache if it was previously computed
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   inverted_matrix <- x$get_inverted_matrix()
